@@ -1,5 +1,5 @@
 # Unicode Chess
-An small library for using and converting unicode chess piece symbols.
+An small class-based javascript library for using and converting unicode chess piece symbols.
 
 ## Usage
 
@@ -14,17 +14,28 @@ import { uchess } from uchess
 Retrieve by color and piece:
 
 ```js
-uchess[color][piece]
+uchess.piece[color][piece]
 
 // black knight ♞
-uchess.black.n
+uchess.piece.black.n
+
 // white rook ♖
-uchess.white.r 
+uchess.piece.white.r
 ```
 
 Or call the piece directly using capital letters for white and lowercase for black.
 
-### Verbose picker
+```js
+uchess.piece[pieceCharacter]
+
+// black knight ♞
+uchess.piece.N
+
+// white rook ♖
+uchess.piece.white.R
+```
+
+### Verbose picker method
 
 Returns an array of piece objects matching the terms
 
@@ -35,27 +46,22 @@ uchess.pick('white', 'rook')
 ```
 
 ### Convert pieces
-Accepts any letter represtation or unicode chess symbol and returns the opposite.
 
-Also converts FEN strings and Algebraic Notation.
+Flexible converter function that accepts any letter representation or unicode chess symbol and returns the opposite.
+
+Also converts FEN strings and Algebraic Notation / Figurine Algebraic Notation.
 
 ```js
 uchess.convert(pieceString||unicodeSymbol, options)
 
 uchess.convert('♕') // Q
+
 uchess.convert('q') // ♛
 ```
 
 With additional options for accessing html entities
 ```js
 uchess.convert('q', {html:true}) // &#9819;
-```
-
-
-### Algebraic Notation <=> Figurine Algebraic Notation
-
-```js
-
 ```
 
 ## To Do
@@ -70,7 +76,6 @@ uchess.convert('q', {html:true}) // &#9819;
   - [ ] To unicode
   - [ ] To character
 - [ ] Typescript
-- [ ] Classes
 
 ## References
 - [Chess symbols in Unicode](https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode)
@@ -82,3 +87,4 @@ uchess.convert('q', {html:true}) // &#9819;
 - Reactive Chess
 - ASCII Chess
 - Chess socket
+- Chess.js

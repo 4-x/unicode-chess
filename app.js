@@ -1,4 +1,4 @@
-class UChess {
+class ChessPieces {
   constructor() {
     this.pieces = [
       {
@@ -74,6 +74,12 @@ class UChess {
         color: 'white'
       }
     ]
+  }
+}
+
+class UChess extends ChessPieces {
+  constructor() {
+    super();
     this.piece = this.pieces.reduce((o, piece) => {
       return {...o, [piece.symbol]: piece.char, [piece.char]: piece.symbol}
     }, {})
@@ -91,9 +97,13 @@ class UChess {
     })
   }
 
+  get symbols() {
+    return this.pieces.map(piece=>piece.symbol)
+  }
+
   pick = function () {
     // finder utility
-    // options?
+    // outline options as needed
   }
 
   convert = function (pieceStr, options) {
