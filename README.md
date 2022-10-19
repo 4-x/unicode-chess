@@ -7,9 +7,11 @@ An small library for using and converting unicode chess piece symbols.
 import { uchess } from uchess
 ```
 
-### Get piece primitives
+### Get pieces 
 
-Call the color and piece:
+#### String Primitives
+
+Retrieve by color and piece:
 
 ```js
 uchess[color][piece]
@@ -22,7 +24,17 @@ uchess.white.r
 
 Or call the piece directly using capital letters for white and lowercase for black.
 
-## Convert pieces
+### Verbose picker
+
+Returns an array of piece objects matching the terms
+
+```js
+uchess.pick('rook')
+uchess.pick('white')
+uchess.pick('white', 'rook')
+```
+
+### Convert pieces
 Accepts any letter represtation or unicode chess symbol and returns the opposite.
 
 Also converts FEN strings and Algebraic Notation.
@@ -52,7 +64,13 @@ uchess.convert('q', {html:true}) // &#9819;
 - [ ] PGN conversion?
 - [ ] Options string / object
 - [ ] Optimize
-
+- [ ] Verbose mode (return objects instead of string primitives)
+- [ ] Careless mode
+  - [ ] Flip all
+  - [ ] To unicode
+  - [ ] To character
+- [ ] Typescript
+- [ ] Classes
 
 ## References
 - [Chess symbols in Unicode](https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode)
