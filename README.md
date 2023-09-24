@@ -1,6 +1,6 @@
 # Unicode Chess ♔♕♖♗♘♙♚♛♜♝♞♟
 
-An small class-based javascript library for using and converting unicode chess piece symbols and standard chess notation.
+An small class-based typescript library for using and converting unicode chess piece symbols and standard chess notation.
 
 ## Usage
 
