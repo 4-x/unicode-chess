@@ -49,6 +49,34 @@ class ChessPieceSymbols {
       return this.getNameBySymbol(match)?.name || match.toLowerCase();
     });
   }
+
+  // Utility function to convert from standard PGN notation to Unicode PGN notation
+  pgnToUnicodePgn(pgnMove: string): string {
+    return pgnMove.replace(/[NBRQK]/g, (match) => {
+      return this.getSymbolByName(match.toLowerCase(), 'white') || match;
+    });
+  }
+
+  // Utility function to convert from Unicode PGN notation to standard PGN notation
+  unicodePgnToPgn(unicodePgnMove: string): string {
+    return unicodePgnMove.replace(/[\u2654-\u265F]/g, (match) => {
+      return this.getNameBySymbol(match)?.name || match.toLowerCase();
+    });
+  }
+
+  // Utility function to convert from standard algebraic notation to Unicode algebraic notation
+  algebraicToUnicodeAlgebraic(algebraicMove: string): string {
+    return algebraicMove.replace(/[NBRQK]/g, (match) => {
+      return this.getSymbolByName(match.toLowerCase(), 'white') || match;
+    });
+  }
+
+  // Utility function to convert from Unicode algebraic notation to standard algebraic notation
+  unicodeAlgebraicToAlgebraic(unicodeAlgebraicMove: string): string {
+    return unicodeAlgebraicMove.replace(/[\u2654-\u265F]/g, (match) => {
+      return this.getNameBySymbol(match)?.name || match.toLowerCase();
+    });
+  }
 }
 
 export { ChessPieceSymbols }
