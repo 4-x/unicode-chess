@@ -42,38 +42,22 @@ console.log('Standard algebraic move:', standardAlgebraicMove2); // Outputs: 'e5
 
 ```
 // Standard PGN with sample moves
-const standardPGN = `
-[Event "Example Game"]
-[Site "Chess.com"]
-[Date "2023.09.25"]
-[Round "1"]
-[White "Player1"]
-[Black "Player2"]
-[Result "1-0"]
+[Event "F/S Return Match"]
+[Site "Belgrade, Serbia JUG"]
+[Date "1992.11.04"]
+[Round "29"]
+[White "Fischer, Robert J."]
+[Black "Spassky, Boris V."]
+[Result "1/2-1/2"]
 
-1. e4 e5
-2. Nf3 Nc6
-3. d4 d6
-4. Bb5 Bd7
-5. O-O Nf6
-6. Nc3 a6
-7. Bxc6 Bxc6
-8. Qd3 Be7
-9. Rd1 O-O
-10. Bg5 Nh5
-11. Bxe7 Qxe7
-12. Qc4 Bd7
-13. Qxc7 Rd8
-14. dxe5 Qe6
-15. Rd6 Qg4
-16. h3 Qe6
-17. Rxe6 Qxe6
-18. Rd1 Rc8
-19. Qxd6 Qe8
-20. Nd5 Rb8
-21. Ng5 Qb5
-22. Nxf7
-1-0
+1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 {This opening is called the Ruy Lopez.}
+4. Ba4 Nf6 5. O-O Be7 6. Re1 b5 7. Bb3 d6 8. c3 O-O 9. h3 Nb8 10. d4 Nbd7
+11. c4 c6 12. cxb5 axb5 13. Nc3 Bb7 14. Bg5 b4 15. Nb1 h6 16. Bh4 c5 17. dxe5
+Nxe4 18. Bxe7 Qxe7 19. exd6 Qf6 20. Nbd2 Nxd6 21. Nc4 Nxc4 22. Bxc4 Nb6
+23. Ne5 Rae8 24. Bxf7+ Rxf7 25. Nxf7 Rxe1+ 26. Qxe1 Kxf7 27. Qe3 Qg5 28. Qxg5
+hxg5 29. b3 Ke6 30. a3 Kd6 31. axb4 cxb4 32. Ra5 Nd5 33. f3 Bc8 34. Kf2 Bf5
+35. Ra7 g6 36. Ra6+ Kc5 37. Ke1 Nf4 38. g3 Nxh3 39. Kd2 Kb5 40. Rd6 Kc5 41. Ra6
+Nf2 42. g4 Bd3 43. Re6 1/2-1/2
 `;
 
 // Convert standard PGN to Unicode PGN
