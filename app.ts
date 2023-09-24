@@ -1,5 +1,5 @@
 class ChessPieceSymbols {
-  private symbols: Record<string, Record<string, string>> = {
+  private symbols: Record<string, Record<"white" | "black", string>> = {
     king: { white: "♔", black: "♚" },
     queen: { white: "♕", black: "♛" },
     rook: { white: "♖", black: "♜" },
@@ -8,13 +8,14 @@ class ChessPieceSymbols {
     pawn: { white: "♙", black: "♟" },
   };
 
-  private reverseSymbols: Record<string, Record<string, string>> = {};
+  private reverseSymbols: Record<string, { piece: string; color: "white" | "black" }> = {};
 
   constructor() {
     for (const piece in this.symbols) {
       if (this.symbols.hasOwnProperty(piece)) {
-        this.reverseSymbols[this.symbols[piece].white] = { piece, color: "white" };
-        this.reverseSymbols[this.symbols[piece].black] = { piece, color: "black" };
+        const color: "white" | "black" = "white"; // Default to white
+        this.reverseSymbols[this.symbols[piece][color]] = { piece, color };
+        this.reverseSymbols[this.symbols[piece]["black"]] = { piece, color: "black" };
       }
     }
   }
