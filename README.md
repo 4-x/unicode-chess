@@ -6,24 +6,31 @@ An small class-based javascript library for using and converting unicode chess p
 
 ```
 const chessSymbols = new ChessPieceSymbols();
+```
 
+### Symbol Conversion
+
+```
 console.log(chessSymbols.getSymbolByName("king", "white")); // Outputs: ♔
 console.log(chessSymbols.getNameBySymbol("♛")); // Outputs: { name: 'queen', color: 'black' }
 ```
 
+### FEN String Conversion
+
+```
+const standardFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+const unicodeFEN = chessSymbols.fenToUnicodeFen(standardFEN);
+console.log("Unicode FEN:", unicodeFEN);
+
+const convertedFEN = chessSymbols.unicodeFenToFen(unicodeFEN);
+console.log("Converted FEN:", convertedFEN);
+```
+
 ## To Do
 
-- [ ] FEN string conversion
 - [ ] Algebraic notation conversion
 - [ ] PGN conversion?
-- [ ] Options string / object
-- [ ] Optimize
 - [ ] Verbose mode (to return objects instead of string primitives)
-- [ ] Careless mode
-  - [ ] Flip all characters
-  - [ ] To unicode
-  - [ ] To character
-- [ ] Typescript
 
 ## References
 

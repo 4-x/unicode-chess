@@ -30,4 +30,24 @@ class ChessPieceSymbols {
     }
     return undefined;
   }
+
+  // Utility function to convert from standard FEN to Unicode FEN
+  fenToUnicodeFen(fen: string): string {
+    return fen.replace(/[\w]/g, (match) => {
+      if (match === match.toLowerCase()) {
+        return this.getSymbolByName(match, "black") || match;
+      } else {
+        return this.getSymbolByName(match, "white") || match;
+      }
+    });
+  }
+
+  // Utility function to convert from Unicode FEN to standard FEN
+  unicodeFenToFen(unicodeFen: string): string {
+    return unicodeFen.replace(/[\u2654-\u265F]/g, (match) => {
+      return this.getNameBySymbol(match)?.name || match.toLowerCase();
+    });
+  }
 }
+
+export { ChessPieceSymbols }
