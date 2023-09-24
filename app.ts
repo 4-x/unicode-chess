@@ -77,6 +77,28 @@ class ChessPieceSymbols {
       return this.getNameBySymbol(match)?.name || match.toLowerCase();
     });
   }
+
+  // Utility function to convert from standard PGN to Unicode PGN
+  pgnToUnicodeFullPGN(standardPGN: string): string {
+    const moves = standardPGN.split(/\d+\.\s*/).filter(Boolean);
+    const convertedMoves = moves.map((move, index) => {
+      const isWhiteMove = index % 2 === 0;
+      const notationConverter = isWhiteMove ? this.pgnToUnicodePgn.bind(this) : this.unicodePgnToPgn.bind(this);
+      return `${index + 1}. ${notationConverter(move)}`;
+    });
+    return convertedMoves.join('\n');
+  }
+
+  // Utility function to convert from Unicode PGN to standard PGN
+  unicodePgnToPgnFullPGN(unicodePGN: string): string {
+    const moves = unicodePGN.split(/\d+\.\s*/).filter(Boolean);
+    const convertedMoves = moves.map((move, index) => {
+      const isWhiteMove = index % 2 === 0;
+      const notationConverter = isWhiteMove ? this.unicodePgnToPgn.bind(this) : this.pgnToUnicodePgn.bind(this);
+      return `${index + 1}. ${notationConverter(move)}`;
+    });
+    return convertedMoves.join('\n');
+  }
 }
 
 export { ChessPieceSymbols }

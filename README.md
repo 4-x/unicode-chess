@@ -38,6 +38,53 @@ const standardPGNMove2 = chessSymbols.unicodePgnToPgn(unicodePGNMove2);
 console.log('Standard PGN move:', standardPGNMove2); // Outputs: 'e4'
 ```
 
+```
+// Standard PGN with sample moves
+const standardPGN = `
+[Event "Example Game"]
+[Site "Chess.com"]
+[Date "2023.09.25"]
+[Round "1"]
+[White "Player1"]
+[Black "Player2"]
+[Result "1-0"]
+
+1. e4 e5
+2. Nf3 Nc6
+3. d4 d6
+4. Bb5 Bd7
+5. O-O Nf6
+6. Nc3 a6
+7. Bxc6 Bxc6
+8. Qd3 Be7
+9. Rd1 O-O
+10. Bg5 Nh5
+11. Bxe7 Qxe7
+12. Qc4 Bd7
+13. Qxc7 Rd8
+14. dxe5 Qe6
+15. Rd6 Qg4
+16. h3 Qe6
+17. Rxe6 Qxe6
+18. Rd1 Rc8
+19. Qxd6 Qe8
+20. Nd5 Rb8
+21. Ng5 Qb5
+22. Nxf7
+1-0
+`;
+
+// Convert standard PGN to Unicode PGN
+const unicodePGN = chessSymbols.pgnToUnicodeFullPGN(standardPGN);
+console.log('Unicode PGN:');
+console.log(unicodePGN);
+
+// Convert Unicode PGN back to standard PGN
+const convertedPGN = chessSymbols.unicodePgnToPgnFullPGN(unicodePGN);
+console.log('Converted PGN:');
+console.log(convertedPGN);
+```
+
 ### Algebraic Notation Conversion
 
 ```
