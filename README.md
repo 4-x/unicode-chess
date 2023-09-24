@@ -26,17 +26,19 @@ const convertedFEN = chessSymbols.unicodeFenToFen(unicodeFEN);
 console.log("Converted FEN:", convertedFEN);
 ```
 
+### Algebraic Notation Conversion
+
+```
+const standardAlgebraicMove = 'Nc3';
+const unicodeAlgebraicMove = chessSymbols.algebraicToUnicodeAlgebraic(standardAlgebraicMove);
+console.log('Unicode algebraic move:', unicodeAlgebraicMove); // Outputs: '♞c3'
+
+const unicodeAlgebraicMove2 = '♟e5';
+const standardAlgebraicMove2 = chessSymbols.unicodeAlgebraicToAlgebraic(unicodeAlgebraicMove2);
+console.log('Standard algebraic move:', standardAlgebraicMove2); // Outputs: 'e5'
+```
+
 ### PGN Conversion
-
-```
-const standardPGNMove = 'Nf3';
-const unicodePGNMove = chessSymbols.pgnToUnicodePgn(standardPGNMove);
-console.log('Unicode PGN move:', unicodePGNMove); // Outputs: '♘f3'
-
-const unicodePGNMove2 = '♙e4';
-const standardPGNMove2 = chessSymbols.unicodePgnToPgn(unicodePGNMove2);
-console.log('Standard PGN move:', standardPGNMove2); // Outputs: 'e4'
-```
 
 ```
 // Standard PGN with sample moves
@@ -83,18 +85,6 @@ console.log(unicodePGN);
 const convertedPGN = chessSymbols.unicodePgnToPgnFullPGN(unicodePGN);
 console.log('Converted PGN:');
 console.log(convertedPGN);
-```
-
-### Algebraic Notation Conversion
-
-```
-const standardAlgebraicMove = 'Nc3';
-const unicodeAlgebraicMove = chessSymbols.algebraicToUnicodeAlgebraic(standardAlgebraicMove);
-console.log('Unicode algebraic move:', unicodeAlgebraicMove); // Outputs: '♞c3'
-
-const unicodeAlgebraicMove2 = '♟e5';
-const standardAlgebraicMove2 = chessSymbols.unicodeAlgebraicToAlgebraic(unicodeAlgebraicMove2);
-console.log('Standard algebraic move:', standardAlgebraicMove2); // Outputs: 'e5'
 ```
 
 ## References

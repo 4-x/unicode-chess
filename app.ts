@@ -50,20 +50,6 @@ class ChessPieceSymbols {
     });
   }
 
-  // Utility function to convert from standard PGN notation to Unicode PGN notation
-  pgnToUnicodePgn(pgnMove: string): string {
-    return pgnMove.replace(/[NBRQK]/g, (match) => {
-      return this.getSymbolByName(match.toLowerCase(), 'white') || match;
-    });
-  }
-
-  // Utility function to convert from Unicode PGN notation to standard PGN notation
-  unicodePgnToPgn(unicodePgnMove: string): string {
-    return unicodePgnMove.replace(/[\u2654-\u265F]/g, (match) => {
-      return this.getNameBySymbol(match)?.name || match.toLowerCase();
-    });
-  }
-
   // Utility function to convert from standard algebraic notation to Unicode algebraic notation
   algebraicToUnicodeAlgebraic(algebraicMove: string): string {
     return algebraicMove.replace(/[NBRQK]/g, (match) => {
@@ -83,8 +69,11 @@ class ChessPieceSymbols {
     const moves = standardPGN.split(/\d+\.\s*/).filter(Boolean);
     const convertedMoves = moves.map((move, index) => {
       const isWhiteMove = index % 2 === 0;
-      const notationConverter = isWhiteMove ? this.pgnToUnicodePgn.bind(this) : this.unicodePgnToPgn.bind(this);
-      return `${index + 1}. ${notationConverter(move)}`;
+      const notationConverter = isWhiteMove
+        ? this.algebraicToUnicodeAlgebraic.bind(this)
+        : this.unicodeAlgebraicToAlgebraic.bind(this);
+      const convertedMove = move.trim().split(/\s+/).map(notationConverter).join(' ');
+      return `${index + 1}. ${convertedMove}`;
     });
     return convertedMoves.join('\n');
   }
@@ -94,8 +83,11 @@ class ChessPieceSymbols {
     const moves = unicodePGN.split(/\d+\.\s*/).filter(Boolean);
     const convertedMoves = moves.map((move, index) => {
       const isWhiteMove = index % 2 === 0;
-      const notationConverter = isWhiteMove ? this.unicodePgnToPgn.bind(this) : this.pgnToUnicodePgn.bind(this);
-      return `${index + 1}. ${notationConverter(move)}`;
+      const notationConverter = isWhiteMove
+        ? this.unicodeAlgebraicToAlgebraic.bind(this)
+        : this.algebraicToUnicodeAlgebraic.bind(this);
+      const convertedMove = move.trim().split(/\s+/).map(notationConverter).join(' ');
+      return `${index + 1}. ${convertedMove}`;
     });
     return convertedMoves.join('\n');
   }
