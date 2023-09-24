@@ -42,6 +42,7 @@ console.log('Standard algebraic move:', standardAlgebraicMove2); // Outputs: 'e5
 
 ```
 // Standard PGN with sample moves
+const standardPGN = `
 [Event "F/S Return Match"]
 [Site "Belgrade, Serbia JUG"]
 [Date "1992.11.04"]
